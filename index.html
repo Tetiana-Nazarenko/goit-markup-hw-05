@@ -22,10 +22,10 @@
                     <a class="logo" href="./index.html">Web<span class="logo-item">Studio</span> </a>
                     <ul class="header-list">
                         <li class="header-item">
-                            <a class="menu-item" href="">Studio</a>
+                            <a class="menu-item current" href="">Studio</a>
                         </li>
                         <li class="header-item">
-                            <a class="menu-item" href="./portfolio.html">Portfolio</a>
+                            <a class="menu-item " href="./portfolio.html">Portfolio</a>
                         </li>
                         <li class="header-item">
                             <a class="menu-item" href="">Contacts</a>
@@ -50,7 +50,15 @@
         <section class="section first-section">
             <div class="container">
                 <h1 class="main-title">Effective Solutions for Your Business</h1>
-                <button class="main-button" type="button">Order Service</button>
+                <button class="main-button" type="button" data-modal-open>Order Service</button>
+                <div class="backdrop is-hidden" data-modal>
+                    <div class="modal">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit molestias blanditiis itaque
+                            veniam perspiciatis culpa ut quia tempore sed dolore.</p>
+                        <button data-modal-close>Закрыть</button>
+                    </div>
+                </div>
+
             </div>
         </section>
         <section class="second-section">
@@ -351,6 +359,8 @@
         </div>
     </footer>
 
+
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
