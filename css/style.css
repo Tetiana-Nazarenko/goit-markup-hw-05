@@ -96,6 +96,7 @@ body {
 .menu-item:hover,
 .menu-item:focus {
 	color: var(--color-blue);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*---NAVIGATION EFFECT-----*/
 
@@ -129,6 +130,7 @@ body {
 .address-item:hover,
 .address-item:focus {
 	color: var(--color-blue);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .first-section {
 	background-image: linear-gradient(to right, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
@@ -167,6 +169,7 @@ body {
 .main-button:hover,
 .main-button:focus {
 	background-color: var(--color-blue);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .second-section {
 	padding-top: 120px;
@@ -293,6 +296,7 @@ body {
 .icons:hover,
 .icons:focus {
 	background-color: var(--color-blue);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-list:first-child {
 	margin-left: 16px;
@@ -323,10 +327,12 @@ body {
 .customers-items:hover,
 .customers-items:focus {
 	border: 1px solid var(--color-blue);
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-items:hover .custom-item,
 .customers-items:focus .custom-item {
 	fill: var(--color-blue);
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .custom-item {
@@ -354,6 +360,7 @@ body {
 .icons-footer:hover,
 .icons-footer:focus {
 	background-color: #31d0aa;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-first {
 	margin-left: 0px;
@@ -415,6 +422,7 @@ body {
 }
 .gallery-items:hover {
 	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+	transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery-items-block {
 	padding-left: 16px;
@@ -444,22 +452,34 @@ body {
 	color: var(--color-white);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 	border-color: var(--color-blue);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-item {
 	text-decoration: none;
 }
-/*----overlei---*/
-
-.gallery-items {
+/*----overley---*/
+.overlay {
 	position: relative;
+	overflow: hidden;
 }
-.list-item:hover::before,
-.list-item:focus::before {
-	content: "";
+.overlay-content {
 	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgb(77, 90, 229, 0.5);
+	padding: 40px 32px;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: calc(24 / 16);
+	background-color: var(--color-button);
+	color: #f4f4fd;
+	transform: translateY(100%);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.list-item:hover .overlay-content {
+	transform: translate(0);
 }
 
 /*----modal---*/
@@ -471,6 +491,7 @@ body {
 	height: 100%;
 	background-color: rgba(46, 47, 66, 0.4);
 	opacity: 1;
+	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
 	position: absolute;
@@ -480,11 +501,49 @@ body {
 	height: 576px;
 	background-color: #fcfcfc;
 
-	transform: translate(-50%, -50%);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+
 	padding: 15px;
+
+	transform: translate(-50%, -50%) scale(1);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+	transform: translate(-50%, -50%) scale(0.5);
 }
 .backdrop.is-hidden {
-	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
+}
+/*---button-MODAL----*/
+.btn-modal {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+
+	height: 24px;
+	width: 24px;
+
+	border-radius: 50%;
+	background: #e7e9fc;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn-icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	fill: black;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn-modal:hover .btn-icon,
+.btn-modal:focus .btn-icon {
+	fill: var(--color-white);
+	background-color: var(--color-blue);
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
