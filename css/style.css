@@ -109,6 +109,7 @@ body {
 	position: absolute;
 	left: 0;
 	bottom: 0;
+	margin-bottom: -1px;
 
 	width: 100%;
 	height: 4px;
@@ -318,6 +319,7 @@ body {
 	gap: 24px;
 }
 .customers-items {
+	padding: 16px 32px;
 	display: block;
 	width: 168px;
 	height: 88px;
@@ -336,7 +338,6 @@ body {
 }
 
 .custom-item {
-	margin: 16px 32px;
 	width: 104px;
 	height: 56px;
 	fill: #8e8f99;
@@ -539,7 +540,6 @@ body {
 	height: 24px;
 	border-radius: 50%;
 	fill: black;
-	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .btn-modal:hover .btn-icon,
 .btn-modal:focus .btn-icon {
